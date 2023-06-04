@@ -11,7 +11,6 @@ from azure.storage.blob import BlobServiceClient
 def unzip_encrypted_blob(source_file_name: str, memberson_directory: str) -> None:
     # Azure Blob Storage connection string
     connection_string = os.environ["AZURE_STORAGE_CONNECTION_STRING"]
-    logging.info(f"Azure Storage connection string: {connection_string}")
 
     # Create a BlobServiceClient object
     blob_service_client = BlobServiceClient.from_connection_string(connection_string)
@@ -41,7 +40,6 @@ def unzip_encrypted_blob(source_file_name: str, memberson_directory: str) -> Non
 
         # Get the unzip password from environment variables or secrets
         password = os.environ["UNZIP_PASSWORD"]
-        logging.info(f'UNZIP_PASSWORD: {password}')
 
         # Unzip the file with the password
         with zipfile.ZipFile(zip_file_path, "r") as zip_ref:
