@@ -88,6 +88,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         req_body = req.get_json()
+        logging.info(f'Request body: {req_body}')  # Add this line to log the received request body
+
         source_file_name = req_body["sourceFileName"]
         memberson_directory = req_body["membersonDirectory"]
 
@@ -100,28 +102,3 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     except Exception as e:
         logging.error(f"Error: {str(e)}")
         return func.HttpResponse("An error occurred during processing.", status_code=500)
-
-# import logging
-
-# import azure.functions as func
-
-
-# def main(req: func.HttpRequest) -> func.HttpResponse:
-#     logging.info('Python HTTP trigger function processed a request.')
-
-#     name = req.params.get('name')
-#     if not name:
-#         try:
-#             req_body = req.get_json()
-#         except ValueError:
-#             pass
-#         else:
-#             name = req_body.get('name')
-
-#     if name:
-#         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
-#     else:
-#         return func.HttpResponse(
-#              "This is a test message for push. This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-#              status_code=200
-#         )
