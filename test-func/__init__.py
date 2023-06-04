@@ -88,8 +88,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         req_body = req.get_json()
-        source_file_name = req_body.get('sourceFileName')
-        memberson_directory = req_body.get('membersonDirectory')
+        source_file_name = req_body["sourceFileName"]
+        memberson_directory = req_body["membersonDirectory"]
 
         logging.info(f'Source file name: {source_file_name}')
         logging.info(f'Memberson directory: {memberson_directory}')
