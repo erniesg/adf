@@ -41,7 +41,7 @@ def unzip_encrypted_blob(source_file_name: str, memberson_directory: str) -> Non
 
         # Get the unzip password from environment variables or secrets
         password = os.environ["UNZIP_PASSWORD"]
-        logging.info(f'UNZIP_PASSWORD: {unzip_password}')
+        logging.info(f'UNZIP_PASSWORD: {password}')
 
         # Unzip the file with the password
         with zipfile.ZipFile(zip_file_path, "r") as zip_ref:
