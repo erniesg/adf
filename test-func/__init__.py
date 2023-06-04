@@ -5,8 +5,8 @@ import tempfile
 import zipfile
 import azure.functions as func
 from azure.storage.blob import BlobServiceClient
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv('.env')
 
 def unzip_encrypted_blob(source_file_name: str, memberson_directory: str) -> None:
     # Azure Blob Storage connection string
